@@ -1,0 +1,19 @@
+# macOS build/temp files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon files
+Icon
+
+# Thumbnails
+._*
+
+# Arduino build artifacts (if any)
+build/
+bin/
+layout.ini
+
+# Sensitive files or temp files
+*.local
+cam/secrets.h
