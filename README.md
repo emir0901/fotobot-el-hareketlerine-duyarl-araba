@@ -12,20 +12,20 @@ Aşağıdaki şemada sistemin bileşenleri arasındaki haberleşme ve veri akı�
 graph TD
     %% Eldiven Bölümü
     subgraph hand["Eldiven Kumanda (cam_hand)"]
-        MPU[MPU6050 Sensör] -->|I2C: SDA/SCL| ESP_H[ESP32 Eldiven]
+        MPU["MPU6050 Sensör"] -->|"I2C: SDA/SCL"| ESP_H["ESP32 Eldiven"]
     end
 
     %% Araba Bölümü
     subgraph car["Akıllı Araba (cam_car & cam)"]
-        ESP_H -->|ESP-NOW (Kablosuz)| ESP_C[ESP32 Araba Kontrolcü]
-        ESP_C -->|PWM / Dijital| Motor[L298N Motor Sürücü & Motorlar]
-        ESP_C -->|Serial UART: RX/TX| CAM[ESP32-CAM Modülü]
+        ESP_H -->|"ESP-NOW (Kablosuz)"| ESP_C["ESP32 Araba Kontrolcü"]
+        ESP_C -->|"PWM / Dijital"| Motor["L298N Motor Sürücü & Motorlar"]
+        ESP_C -->|"Serial UART: RX/TX"| CAM["ESP32-CAM Modülü"]
     end
 
     %% Bulut / Kullanıcı Bölümü
     subgraph cloud["Bulut & Telegram"]
-        CAM -->|Wi-Fi HTTP POST| TG_API[Telegram Bot API]
-        TG_API -->|Görsel Bildirim| Phone[Kullanıcı Telefonu]
+        CAM -->|"Wi-Fi HTTP POST"| TG_API["Telegram Bot API"]
+        TG_API -->|"Görsel Bildirim"| Phone["Kullanıcı Telefonu"]
     end
 
     classDef hand fill:#f9f,stroke:#333,stroke-width:2px;
